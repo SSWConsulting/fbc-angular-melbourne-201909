@@ -35,7 +35,7 @@ export class CompanyEditComponent implements OnInit {
       }
     );
 
-    if (!this.isNewCompany){
+    if (!this.isNewCompany) {
       this.companyService.getCompany(this.companyId)
       .subscribe(company => this.companyForm.patchValue(company));
     }
@@ -43,13 +43,12 @@ export class CompanyEditComponent implements OnInit {
 
   saveCompany() {
     if (this.isNewCompany) {
-      this.companyService.addCompany(this.companyForm.value)
-      .subscribe(c => this.router.navigateByUrl(''));
+      this.companyService.addCompany(this.companyForm.value);
     } else {
       const company = {...this.companyForm.value, id: this.companyId};
-      this.companyService.updateCompany(company)
-      .subscribe(c => this.router.navigateByUrl(''));
+      this.companyService.updateCompany(company);
     }
+    this.router.navigateByUrl('');
   }
 
 }
