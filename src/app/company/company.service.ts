@@ -32,7 +32,7 @@ export class CompanyService {
     return this.httpClient.delete<Company>(`${this.API_BASE}/company/${company.id}`);
   }
 
-  addCompany(company: Company): Observable<Company>{
+  addCompany(company: Company): Observable<Company> {
     return this.httpClient.post<Company>(`${this.API_BASE}/company`, company
     , { headers: new HttpHeaders().set('content-type', 'application/json') });
   }
